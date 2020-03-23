@@ -78,3 +78,7 @@
   ```
 
 
+# 資料來源
+- [PyTrends](https://github.com/GeneralMills/pytrends)
+- [Google Trends](https://trends.google.com/trends/)
+- [Source Code](https://github.com/Benknightdark/GoogleTrendsApi)
