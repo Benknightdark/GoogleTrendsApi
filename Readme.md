@@ -14,10 +14,23 @@
   import numpy as np 
   ```
 
+- ### Build PayLoad
+  
+  ```python
+  pytrend = TrendReq(hl='zh-TW', tz=360)
+  keywords = ['Azure','GCP','AWS']
+  pytrend.build_payload(
+      kw_list=keywords,
+      cat=0,
+      timeframe='today 3-m',
+      geo='TW',
+      gprop='')
+    ```
+
 - ### Interest Over Time
   
   ```python
-  
+  pytrend.interest_over_time().plot()
   ```
   
   
@@ -25,29 +38,43 @@
 - ### Historical Hourly Interest
   
   ```python
+  data=pytrends.get_historical_interest(keywords, year_start=2020,
+  month_start=1, day_start=1, 
+  hour_start=0, year_end=2020, 
+  month_end=2, day_end=1, 
+  hour_end=0, cat=0, geo='TW', gprop='', sleep=0)
+  data.plot()
   
   ```
 
 - ### Interest by Region
   
-  ```
-  
+  ```python
+  pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=False)
   ```
   
   
 
 - ### Related Queries
 
-- ```
-  
+  ```python
+  pytrends.related_queries()['Azure']['top']
+  pytrends.related_queries()['GCP']['top']
+  pytrends.related_queries()['AWS']['top']
+  ```
+- ### Trending Searches
+  ```python
+  pytrends.trending_searches(pn='taiwan')
   ```
 
-- 
-
-- ### Trending Searches
-
 - ### Top Charts
+  ```python
+  top_charts_df = pytrend.top_charts(2019, hl='zh-TW', tz=300, geo='TW')
+  ```
 
 - ### Suggestions
+  ```python
+  pytrends.suggestions('azure')
+  ```
 
 
